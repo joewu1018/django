@@ -1,11 +1,10 @@
-<html>
-<head>
+{% extends "base.html" %}
+{% block title %}Hello2{% endblock %}
+
 	{% load static %}
 	<link href="{% static 'css/style.css' %}"rel ="stylesheet" type="text/css" /> 
-</head>
-<body>
+{% block content %}
 	<img src="{% static 'images/ball.png' %}"alt="歡迎" width="32" height="32">
 	<h1 class=info>歡迎:{{username}}</h1>
 	<h2>時間:{{now}}</h2>
-</body>
-</html>
+{% endblock %}
