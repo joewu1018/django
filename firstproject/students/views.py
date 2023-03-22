@@ -16,7 +16,7 @@ def listall(request):
 
 def post(request):  
     if request.method=="POST":
-        mess="Name:"+request.POST["stuName"]+"ID:"+request.POST["stuID"]+"Sex"+request.POST["stuSex"]+"Birth"+request.POST["stuBirth"]+"Email"+request.POST["stuEmail"]+"Phone"+request.POST["stuPhone"]+"Address"+request.POST["stuAddress"]
+        mess="姓名:"+request.POST["stuName"]+"、學號:"+request.POST["stuID"]+"、性別:"+request.POST["stuSex"]+"、生日:"+request.POST["stuBirth"]+"、電子郵件:"+request.POST["stuEmail"]+"、手機號碼:"+request.POST["stuPhone"]+"、地址:"+request.POST["stuAddress"]
     else:
         mess="表單尚未送出!"
     return render(request,"addstudent.html",locals())
