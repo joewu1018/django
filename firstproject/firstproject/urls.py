@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 from polls.views import hello,hello1,hello2,hello3,students
-from students.views import listone, listall,post,post1
+from students.views import listone, listall,post,post1,postform
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,4 +30,5 @@ urlpatterns = [
     path('listall/', listall),
     path('post/', post),
     path('post1/', post1),
+    path('post2/', postform),
     ]

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}類別表單驗證{% endblock %}
+{% block content %}
+
+
+    <h2>基本表單驗證</h2>
+    <form action="." method="POST" name="stuform">
+        {%csrf_token%}
+        <table class="table">
+            {{stuform}}
+        </table>
+    </form>
+    {% endblock %}

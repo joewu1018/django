@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 
 # Create your views here.
 from students.models import student
+from students.form import Postform
 
 def listone(request): 
     try: 
@@ -37,3 +38,7 @@ def post1(request):
     else:
         mess = '請輸入資料(資料不作驗證)'
     return render(request, "addstudent1.html", locals())
+
+def postform(request):
+    stuform=Postform()
+    return render(request,"stuform.html",locals())
