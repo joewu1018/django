@@ -33,3 +33,4 @@ def students(request):
 	std3={"name":"同學3","sid":"222222222","age":20}
 	stds=[std1,std2,std3]
 	return render(request,"std.html",locals())
+

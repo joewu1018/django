@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 
 # Create your views here.
 from students.models import student
@@ -20,3 +20,20 @@ def post(request):
     else:
         mess="表單尚未送出!"
     return render(request,"addstudent.html",locals())
+
+def post1(request):
+    if request.method == "POST":      #如果是以POST方式才處理
+        stuName = request.POST['stuName'] #取得表單輸入資料
+        stuID = request.POST['stuID']
+        stuSex =  request.POST['stuSex']
+        stuBirth =  request.POST['stuBirth']
+        stuEmail = request.POST['stuEmail']
+        stuPhone =  request.POST['stuPhone']
+        stuAddress =  request.POST['stuAddress']
+        #新增一筆記錄
+        unit = student.objects.create(stuName=stuName, stuID=stuID, stuSex=stuSex, stuBirth=stuBirth, stuEmail=stuEmail, stuPhone=stuPhone, stuAddress=stuAddress) 
+        unit.save()  #寫入資料庫
+        return redirect('/post1')  
+    else:
+        mess = '請輸入資料(資料不作驗證)'
+    return render(request, "addstudent1.html", locals())
