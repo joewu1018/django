@@ -6,8 +6,42 @@
     <h2>基本表單驗證</h2>
     <form action="." method="POST" name="stuform">
         {%csrf_token%}
-        <table class="table">
-            {{stuform}}
-        </table>
+        <table border="1" cellspacing="1" cellpadding="4" class="table table-striped">
+            <tr>
+              <th>姓名</th><td>{{stuform.stuName}}</td>
+            </tr>
+            <tr>
+              <th>學號</th><td>{{stuform.stuID}}</td>
+            </tr>
+            <tr>
+              <th>性別</th>
+              <td>
+                <input name="stuSex" type="radio" id="stuSex1" value="M" checked="checked" />
+                男生
+                <input name="stuSex" type="radio" id="stuSex2" value="F" checked="checked" />
+                女生
+                <input name="stuSex" type="radio" id="stuSex3" value="Other" checked="checked" />
+                其他
+              </td>
+            </tr>
+            <tr>
+              <th>生日</th><td>{{stuform.stuBirth}}</td>
+            </tr>
+            <tr>
+              <th>電子郵件</th><td>{{stuform.stuEmail}}</td>
+            </tr>
+            <tr>
+              <th>電話</th><td>{{stuform.stuPhone}}</td>
+            </tr>
+            <tr>
+              <th>地址</th><td>{{stuform.stuAddress}}</td>
+            </tr>
+            <tr>
+              <th colspan="2" align="center">
+                <input type="submit" id="button" name="button" value="送出" class="btn btn-primary"/>
+                <input type="reset" id="button" name="button" value="重設" class="btn btn-primary"/>
+              </th>
+            </tr>
+          </table>
     </form>
     {% endblock %}
