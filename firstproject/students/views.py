@@ -54,3 +54,29 @@ def delete(request,stuID=None):
         except:
             mess="查無此學號"
     return render(request,"delete.html",locals())
+
+def edit(request, stuID=None, mode=None):
+    if mode == "edit":
+        unit = student.objects.get(stuID=stuID)
+        unit.stuName = request.GET["studName"]
+        unit.stuID = request.GET["stuID"]
+        unit.stuSex = request.GET["stuSex"]
+        unit.stuBirth = request.GET["stuBirth"]
+        unit.stuEmail = request.GET["stuEmail"]
+        unit.stuPhone = request.GET["stuPhone"]
+        unit.stuAddress = request.GET["stuAddress"]
+        unit.save()
+        mess = "已修改完成"
+        return redirect('/listall')
+    else:
+        try:
+            unit = student.objects.get(stuID=stuID)
+            strDate = str(unit.stuBirth)
+            strDate2 = strDate.replace(" 年 ", "-")
+            strDate2 = strDate.replace(" 月 ", "-")
+            strDate2 = strDate.replace(" 日 ", "-")
+            unit.stuBirth = strDate2
+        except:
+            mess = "此學號不存在"
+        return render(request, "edit.html", locals())
+
