@@ -42,3 +42,15 @@ def post1(request):
 def postform(request):
     stuform=Postform()
     return render(request,"stuform.html",locals())
+
+def delete(request,stuID=None):
+    if id !=None:
+        if request.method=="POST":
+            stuID=request.POST["stuID"]
+        try:
+            unit =student.objects.get(stuID=stuID)
+            unit.delete()
+            return redirect("/listall")
+        except:
+            mess="查無此學號"
+    return render(request,"delete.html",locals())
