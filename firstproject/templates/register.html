@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}註冊{% endblock %}
+{% block content %}
+<h2>帳號註冊</h2>
+<form action="." method="POST" name="form1" >
+        {% csrf_token %}
+      <table border="1" cellspacing="1" cellpadding="4" class="table table-striped">
+        <tr>
+          <th>帳號</th><td>{{userform.UserAccount}}</td>
+        </tr>
+        <tr>
+          <th>密碼</th><td>{{userform.UserPassword}}</td>
+        </tr>
+        <tr>
+          <th>電子郵件</th><td>{{userform.UserEmail}}</td>
+        </tr>
+        <tr>
+          <th>姓名</th><td>{{userform.UserFirstName}}</td>
+        </tr>
+        <tr>
+          <th>姓氏</th><td>{{userform.UserLastName}}</td>
+        </tr>
+          <th colspan="2" align="center">
+            <input type="submit" id="button" name="button" value="送出" class="btn btn-primary"/>
+            <input type="reset" id="button" name="button" value="重設" class="btn btn-primary"/>
+          </th>
+        </tr>
+      </table>
+        <span style="color:red">接收到的資料:{{mess}}</span>
+</form>
+{% endblock %}
