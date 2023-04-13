@@ -19,6 +19,9 @@ from django.urls import path
 from polls.views import hello,hello1,hello2,hello3,students
 from students.views import listone, listall,post,post1,postform,delete, edit
 from CookieSessionApp import views as csviews
+from flower import views as fviews
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -57,4 +60,9 @@ urlpatterns = [
     path('mypage/',csviews.mypage),
     path('adduser/',csviews.adduser),
     path('register/',csviews.register),
-    ]
+
+    path('flower/', fviews.flowers),
+    path('flower/<slug:slug>/', fviews.detail, name='detail'),
+
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
