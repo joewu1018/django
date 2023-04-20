@@ -137,7 +137,7 @@ def logout(request):
 def mypage(request):
 	if request.user.is_authenticated:
 	   name=request.user.username
-	return render(request, "mypage.html", locals())
+	return render(request, "CookieSession/mypage.html", locals())
 
 def login(request):
 	if request.method == 'POST':
@@ -153,7 +153,7 @@ def login(request):
 				mess = '帳號尚未啟用！'
 		else:
 			mess = '登入失敗！'
-	return render(request, "login.html", locals())
+	return render(request, "CookieSession/login.html", locals())
 	
 def logout(request):
 	auth.logout(request)
@@ -173,7 +173,7 @@ def register(request):
 		user.is_staff=True	# 工作人員狀態
 		user.save()
 		return redirect('/admin/')
-	return render(request, "register.html", locals())
+	return render(request, "CookieSession/register.html", locals())
 
 def adduser(request):	
 	try:

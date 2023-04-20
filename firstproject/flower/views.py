@@ -11,8 +11,8 @@ def flowers(request):
         flowers = Flower.objects.all()
     elif q is not None:
         flowers = Flower.objects.filter(title__contains=q)
-    return render(request, 'flower.html', {'flowers': flowers })
+    return render(request, 'flower/flower.html', {'flowers': flowers })
 
 def detail(request, slug=None):
     flower = get_object_or_404(Flower, slug=slug)
-    return render(request, 'detail.html', locals())
+    return render(request, 'flower/detail.html', locals())

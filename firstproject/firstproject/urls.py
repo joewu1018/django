@@ -22,6 +22,7 @@ from CookieSessionApp import views as csviews
 from flower import views as fviews
 from django.conf import settings
 from django.conf.urls.static import static
+from newsadmapp import views as news
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -63,6 +64,21 @@ urlpatterns = [
 
     path('flower/', fviews.flowers),
     path('flower/<slug:slug>/', fviews.detail, name='detail'),
+
+    path('newsadmin/',admin.site.urls),
+	path('', news.index),
+	path('newsindex/', news.index),
+	path('newsindex/<str:pageindex>/', news.index),
+	path('newsdetail/<int:detailid>/', news.detail),
+	path('newslogin/', news.login),
+	path('newslogout/', news.logout),
+	path('newsadminmain/', news.adminmain),
+	path('newsadminmain/<str:pageindex>/', news.adminmain),
+ 	path('newsadd/', news.newsadd),
+	path('newsedit/<int:newsid>/', news.newsedit),
+	path('newsedit/<int:newsid>/<str:edittype>/', news.newsedit),
+	path('newsdelete/<int:newsid>/', news.newsdelete),
+	path('newsdelete/<int:newsid>/<str:deletetype>/', news.newsdelete),
 
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

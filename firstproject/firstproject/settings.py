@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     "polls",
     "students",
     'CookieSessionApp',
-    'flower'
+    'flower',
+    'newsadmapp',
 ]
 
 MIDDLEWARE = [
